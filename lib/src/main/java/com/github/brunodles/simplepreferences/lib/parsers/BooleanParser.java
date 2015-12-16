@@ -16,11 +16,12 @@ public class BooleanParser extends Parser {
 
     @Override
     public void save(SharedPreferences.Editor editor, Field field, Object object, Property annotation) throws IllegalAccessException {
-        editor.putBoolean(resolveKey(field), field.getBoolean(object));
+        editor.putBoolean(resolveKey(field), getValue(field, object, false));
     }
 
     @Override
     public void load(SharedPreferences preferences, Field field, Object object, Property annotation) throws IllegalAccessException {
-        field.setBoolean(object, preferences.getBoolean(resolveKey(field), field.getBoolean(object)));
+        boolean defValue = getValue(field, object, false);
+        field.set(object, preferences.getBoolean(resolveKey(field), defValue));
     }
 }

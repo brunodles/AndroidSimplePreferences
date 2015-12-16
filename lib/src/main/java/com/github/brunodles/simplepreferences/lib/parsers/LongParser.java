@@ -16,11 +16,12 @@ public class LongParser extends Parser {
 
     @Override
     public void save(SharedPreferences.Editor editor, Field field, Object object, Property annotation) throws IllegalAccessException {
-        editor.putLong(resolveKey(field), field.getLong(object));
+        editor.putLong(resolveKey(field), getValue(field, object, 0L));
     }
 
     @Override
     public void load(SharedPreferences preferences, Field field, Object object, Property annotation) throws IllegalAccessException {
-        field.setLong(object, preferences.getLong(resolveKey(field), field.getLong(object)));
+        long defValue = getValue(field, object, 0L);
+        field.setLong(object, preferences.getLong(resolveKey(field), defValue));
     }
 }

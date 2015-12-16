@@ -12,6 +12,14 @@ public abstract class Parser {
         return name;
     }
 
+    protected <T> T getValue(Field field, Object object, T defaultValue) throws IllegalAccessException {
+        Object o = field.get(object);
+        if (o == null)
+            return defaultValue;
+        else
+            return (T) o;
+    }
+
     protected abstract boolean canResolve(Class<?> fieldType);
 
     public abstract void save(SharedPreferences.Editor editor, Field field, Object object, Property annotation) throws IllegalAccessException;

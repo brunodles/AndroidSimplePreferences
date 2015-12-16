@@ -19,14 +19,14 @@ public class IntegerParser extends Parser {
 
     @Override
     public void save(SharedPreferences.Editor editor, Field field, Object object, Property annotation) throws IllegalAccessException {
-        editor.putInt(resolveKey(field), field.getInt(object));
+        editor.putInt(resolveKey(field), getValue(field, object, 0));
     }
 
     @Override
     public void load(SharedPreferences preferences, Field field, Object object, Property annotation) throws IllegalAccessException {
-        String key = resolveKey(field);
-        int defValue = field.getInt(object);
-        int value = preferences.getInt(key, defValue);
-        field.setInt(object, value);
+        Integer defaultValue = getValue(field, object, 0);
+        Integer value = preferences.getInt(resolveKey(field), defaultValue);
+        field.set(object, value);
     }
+
 }

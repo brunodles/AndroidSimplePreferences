@@ -21,6 +21,8 @@ public class FloatParser extends Parser {
 
     @Override
     public void load(SharedPreferences preferences, Field field, Object object, Property annotation) throws IllegalAccessException {
-        field.setFloat(object, preferences.getFloat(resolveKey(field), field.getFloat(object)));
+        float defValue = getValue(field, object, 0f);
+        float value = preferences.getFloat(resolveKey(field), defValue);
+        field.set(object, value);
     }
 }
