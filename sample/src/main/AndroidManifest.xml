@@ -9,8 +9,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".SmiplePreferenceSample"
-            android:label="@string/title_activity_smiple_preference"
+            android:name=".SimplePreferenceSample"
+            android:label="@string/title_activity_simple_preference"
             android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>

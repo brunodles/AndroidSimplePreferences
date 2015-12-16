@@ -1,4 +1,4 @@
 <resources>
     <string name="app_name">SimplePreferences</string>
-    <string name="title_activity_smiple_preference">SmiplePreference</string>
+    <string name="title_activity_simple_preference">SimplePreference</string>
 </resources>

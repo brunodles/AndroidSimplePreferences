@@ -11,7 +11,7 @@ import android.widget.RadioGroup;
 import java.util.Arrays;
 import java.util.List;
 
-public class SmiplePreferenceSample extends AppCompatActivity implements View.OnClickListener {
+public class SimplePreferenceSample extends AppCompatActivity implements View.OnClickListener {
 
     private static List<Integer> DROIDS = Arrays.asList(R.id.droid1, R.id.droid2, R.id.droid3);
 
