@@ -1,4 +1,4 @@
-package com.github.brunodles.simplepreferences;
+package com.github.brunodles.simplepreferences.sample;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -11,7 +11,7 @@ import android.widget.RadioGroup;
 import java.util.Arrays;
 import java.util.List;
 
-public class SimplePreferenceSample extends AppCompatActivity implements View.OnClickListener {
+public class SampleActivity extends AppCompatActivity implements View.OnClickListener {
 
     private static List<Integer> DROIDS = Arrays.asList(R.id.droid1, R.id.droid2, R.id.droid3);
     private static List<Integer> SPACESHIPS = Arrays.asList(R.id.spaceship1, R.id.spaceship2, R.id.spaceship3);

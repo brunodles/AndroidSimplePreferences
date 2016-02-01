@@ -1,4 +1,4 @@
-package com.github.brunodles.simplepreferences;
+package com.github.brunodles.simplepreferences.sample;
 
 import android.content.Context;
 
