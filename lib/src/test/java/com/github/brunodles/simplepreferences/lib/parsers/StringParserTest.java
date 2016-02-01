@@ -4,14 +4,15 @@ import android.content.SharedPreferences;
 
 import com.github.brunodles.simplepreferences.lib.Property;
 
-import junit.framework.Assert;
-
 import org.junit.Before;
 import org.junit.Test;
 
 import java.lang.reflect.Field;
 
+import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 /**
@@ -35,9 +36,10 @@ public class StringParserTest {
         }
 
         @Test
-        public void shouldDeserialize() throws IllegalAccessException {
+        public void shouldReturnTheSavedValue() throws IllegalAccessException {
             stringParser.load(preferences, field, object, field.getAnnotation(Property.class));
-            Assert.assertEquals("Should be equals", "test", object.field);
+            assertEquals("Should be equals", "test", object.field);
+            verify(preferences, times(1)).getString("field", null);
         }
 
         private static class SampleObject {
@@ -61,9 +63,10 @@ public class StringParserTest {
         }
 
         @Test
-        public void shouldDeserialize() throws IllegalAccessException {
+        public void shouldReturnTheDefaultValue3e() throws IllegalAccessException {
             stringParser.load(preferences, field, object, field.getAnnotation(Property.class));
-            Assert.assertEquals("Should be equals", "defaultValue", object.field);
+            assertEquals("Should be equals", "defaultValue", object.field);
+            verify(preferences, times(1)).getString("field", "defaultValue");
         }
 
         private static class SampleObject {
