@@ -3,16 +3,30 @@ package com.github.brunodles.simplepreferences.lib;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+/**
+ * This class will work as a Data Access Object. With that will be able to pass objects and receive
+ * loaded object. The point is that you don't need to extend any framework class to use it.
+ */
 public class DaoPreferences {
 
     Context context;
 
+    /**
+     * @param context we need the context to be able to save/load the preferences.
+     */
     public DaoPreferences(Context context) {
         this.context = context;
     }
 
-    public <T> T load(T object, String name) {
-        CommonPreferences.load(getSharedPreferences(name), object);
+    /**
+     * Fill a empty object with loaded data.
+     *
+     * @param object A empty object
+     * @param key    The key was used to save the object
+     * @return The same object filled with data.
+     */
+    public <T> T load(T object, String key) {
+        CommonPreferences.load(getSharedPreferences(key), object);
         return object;
     }
 
@@ -20,12 +34,24 @@ public class DaoPreferences {
         return context.getSharedPreferences(preferenceName, Context.MODE_PRIVATE);
     }
 
-    public <T> T save(T object, String name) {
-        CommonPreferences.apply(getSharedPreferences(name), object);
+    /**
+     * Save a object using that key as filename.
+     *
+     * @param object The object you want to save
+     * @param key    The key used to retrieve the object later.
+     * @return The saved Object
+     */
+    public <T> T save(T object, String key) {
+        CommonPreferences.apply(getSharedPreferences(key), object);
         return object;
     }
 
-    public void clear(String name) {
-        CommonPreferences.clear(getSharedPreferences(name));
+    /**
+     * Clear a key
+     *
+     * @param key The key to be cleared
+     */
+    public void clear(String key) {
+        CommonPreferences.clear(getSharedPreferences(key));
     }
 }
