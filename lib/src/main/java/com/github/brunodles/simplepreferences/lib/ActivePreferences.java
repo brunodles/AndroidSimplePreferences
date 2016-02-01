@@ -5,7 +5,7 @@ import android.content.SharedPreferences;
 
 /**
  * This class is intented to act as a ActiveRecord. This means that it will store the data and
- * will be able to save / load itself.<br/>
+ * will be able to save / load itself.<br>
  * To use it will will need to create a new class that extend this.
  */
 public abstract class ActivePreferences {

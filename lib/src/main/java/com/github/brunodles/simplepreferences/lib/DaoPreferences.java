@@ -23,6 +23,7 @@ public class DaoPreferences {
      *
      * @param object A empty object
      * @param key    The key was used to save the object
+     * @param <T>    The object type will be detected
      * @return The same object filled with data.
      */
     public <T> T load(T object, String key) {
@@ -39,6 +40,7 @@ public class DaoPreferences {
      *
      * @param object The object you want to save
      * @param key    The key used to retrieve the object later.
+     * @param <T>    The object type will be detected
      * @return The saved Object
      */
     public <T> T save(T object, String key) {
