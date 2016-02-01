@@ -4,25 +4,14 @@ import android.content.SharedPreferences;
 
 import java.lang.reflect.Field;
 
-public abstract class Parser {
-    protected static String resolveKey(Field field) {
-        String name = field.getAnnotation(Property.class).value();
-        if ("".equalsIgnoreCase(name))
-            name = field.getName();
-        return name;
-    }
+/**
+ * This interface is used to parse objects
+ */
+public interface Parser {
 
-    protected <T> T getValue(Field field, Object object, T defaultValue) throws IllegalAccessException {
-        Object o = field.get(object);
-        if (o == null)
-            return defaultValue;
-        else
-            return (T) o;
-    }
+    boolean canResolve(Class<?> fieldType);
 
-    protected abstract boolean canResolve(Class<?> fieldType);
+    void save(SharedPreferences.Editor editor, Field field, Object object, Property annotation) throws IllegalAccessException;
 
-    public abstract void save(SharedPreferences.Editor editor, Field field, Object object, Property annotation) throws IllegalAccessException;
-
-    public abstract void load(SharedPreferences preferences, Field field, Object object, Property annotation) throws IllegalAccessException;
+    void load(SharedPreferences preferences, Field field, Object object, Property annotation) throws IllegalAccessException;
 }

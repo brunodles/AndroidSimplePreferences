@@ -7,10 +7,10 @@ import com.github.brunodles.simplepreferences.lib.Property;
 
 import java.lang.reflect.Field;
 
-/**
- * Created by bruno on 16/12/15.
- */
-public class IntegerParser extends Parser {
+import static com.github.brunodles.simplepreferences.lib.ParserHelper.getValue;
+import static com.github.brunodles.simplepreferences.lib.ParserHelper.resolveKey;
+
+public class IntegerParser implements Parser {
 
     @Override
     public boolean canResolve(Class<?> fieldType) {

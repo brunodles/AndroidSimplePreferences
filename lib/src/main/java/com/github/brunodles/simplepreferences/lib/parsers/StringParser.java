@@ -7,7 +7,9 @@ import com.github.brunodles.simplepreferences.lib.Property;
 
 import java.lang.reflect.Field;
 
-public class StringParser extends Parser {
+import static com.github.brunodles.simplepreferences.lib.ParserHelper.resolveKey;
+
+public class StringParser implements Parser {
 
     @Override
     public boolean canResolve(Class<?> fieldType) {
