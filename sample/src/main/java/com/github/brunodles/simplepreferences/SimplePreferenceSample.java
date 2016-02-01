@@ -14,6 +14,7 @@ import java.util.List;
 public class SimplePreferenceSample extends AppCompatActivity implements View.OnClickListener {
 
     private static List<Integer> DROIDS = Arrays.asList(R.id.droid1, R.id.droid2, R.id.droid3);
+    private static List<Integer> SPACESHIPS = Arrays.asList(R.id.spaceship1, R.id.spaceship2, R.id.spaceship3);
 
     private Button apply;
     private Button load;
@@ -22,6 +23,7 @@ public class SimplePreferenceSample extends AppCompatActivity implements View.On
     private EditText characterName;
     private StarWarsPreferences preferences;
     private RadioGroup droid;
+    private RadioGroup spaceship;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +33,7 @@ public class SimplePreferenceSample extends AppCompatActivity implements View.On
         dark = (CheckBox) findViewById(R.id.dark);
         light = (CheckBox) findViewById(R.id.light);
         droid = (RadioGroup) findViewById(R.id.droid);
+        spaceship = (RadioGroup) findViewById(R.id.spaceship);
         load = (Button) findViewById(R.id.load);
         apply = (Button) findViewById(R.id.apply);
 
@@ -48,9 +51,14 @@ public class SimplePreferenceSample extends AppCompatActivity implements View.On
         light.setChecked(preferences.light);
         int droidIndex = preferences.droid;
         if (droidIndex >= 0)
-            this.droid.check(DROIDS.get(droidIndex));
+            droid.check(DROIDS.get(droidIndex));
         else
             droid.check(-1);
+        int shipIndex = preferences.spaceship;
+        if (shipIndex >= 0)
+            spaceship.check(SPACESHIPS.get(shipIndex));
+        else
+            spaceship.check(-1);
     }
 
     private void toPreference() {
@@ -60,6 +68,9 @@ public class SimplePreferenceSample extends AppCompatActivity implements View.On
         int checkedRadioButtonId = droid.getCheckedRadioButtonId();
         if (checkedRadioButtonId >= 0)
             preferences.droid = DROIDS.indexOf(checkedRadioButtonId);
+        int checkedSpaceShipId = spaceship.getCheckedRadioButtonId();
+        if (checkedSpaceShipId >= 0)
+            preferences.spaceship = SPACESHIPS.indexOf(checkedSpaceShipId);
         preferences.apply();
     }
 
