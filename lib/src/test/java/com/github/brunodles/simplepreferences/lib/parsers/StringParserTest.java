@@ -63,7 +63,7 @@ public class StringParserTest {
         }
 
         @Test
-        public void shouldReturnTheDefaultValue3e() throws IllegalAccessException {
+        public void shouldReturnTheDefaultValue() throws IllegalAccessException {
             stringParser.load(preferences, field, object, field.getAnnotation(Property.class));
             assertEquals("Should be equals", "defaultValue", object.field);
             verify(preferences, times(1)).getString("field", "defaultValue");
