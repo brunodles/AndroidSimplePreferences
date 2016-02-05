@@ -1,6 +1,7 @@
 package com.github.brunodles.simplepreferences.lib.parsers;
 
 import android.content.SharedPreferences;
+import android.test.suitebuilder.annotation.SmallTest;
 
 import com.github.brunodles.simplepreferences.lib.Property;
 
@@ -36,6 +37,7 @@ public class StringParserTest {
         }
 
         @Test
+        @SmallTest
         public void shouldReturnTheSavedValue() throws IllegalAccessException {
             stringParser.load(preferences, field, object, field.getAnnotation(Property.class));
             assertEquals("Should be equals", "test", object.field);
@@ -63,6 +65,7 @@ public class StringParserTest {
         }
 
         @Test
+        @SmallTest
         public void shouldReturnTheDefaultValue() throws IllegalAccessException {
             stringParser.load(preferences, field, object, field.getAnnotation(Property.class));
             assertEquals("Should be equals", "defaultValue", object.field);
