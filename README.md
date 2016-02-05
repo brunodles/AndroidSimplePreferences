@@ -1,6 +1,8 @@
 # SimplePreferences
 
 [![Release](https://jitpack.io/v/brunodles/AndroidSimplePreferences.svg)](https://jitpack.io/#brunodles/AndroidSimplePreferences)
+[![Build Status](https://travis-ci.org/brunodles/AndroidSimplePreferences.svg?branch=master)](https://travis-ci.org/brunodles/AndroidSimplePreferences)
+[![API](https://img.shields.io/badge/API-14%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=14)
 
 A simple library to work with SharedPreferences.
 
