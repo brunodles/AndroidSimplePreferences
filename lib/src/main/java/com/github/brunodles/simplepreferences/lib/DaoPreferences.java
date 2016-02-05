@@ -37,13 +37,30 @@ public class DaoPreferences {
 
     /**
      * Save a object using that key as filename.
+     * When you use this method, the data will be saved on a background thread.
+     * You can take a look on {@link SharedPreferences.Editor#apply()}.
      *
      * @param object The object you want to save
      * @param key    The key used to retrieve the object later.
      * @param <T>    The object type will be detected
      * @return The saved Object
      */
-    public <T> T save(T object, String key) {
+    public <T> T apply(T object, String key) {
+        CommonPreferences.apply(getSharedPreferences(key), object);
+        return object;
+    }
+
+    /**
+     * Save a object using that key as filename.
+     * When you use this method, the data will be saved synchronously.
+     * You can take a look on {@link SharedPreferences.Editor#commit()}.
+     *
+     * @param object The object you want to save
+     * @param key    The key used to retrieve the object later.
+     * @param <T>    The object type will be detected
+     * @return The saved Object
+     */
+    public <T> T commit(T object, String key) {
         CommonPreferences.apply(getSharedPreferences(key), object);
         return object;
     }

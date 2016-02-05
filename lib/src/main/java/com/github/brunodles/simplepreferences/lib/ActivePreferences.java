@@ -39,6 +39,8 @@ public abstract class ActivePreferences {
 
     /**
      * Save current data to other objects.
+     * When you use this method, the data will be saved on a background thread.
+     * You can take a look on {@link SharedPreferences.Editor#apply()}.
      */
     public void apply() {
         CommonPreferences.apply(getSharedPreferences(), this);
@@ -46,6 +48,8 @@ public abstract class ActivePreferences {
 
     /**
      * Save current data to other objects.
+     * When you use this method, the data will be saved on a background thread.
+     * You can take a look on {@link SharedPreferences.Editor#apply()}.
      */
     public void commit() {
         CommonPreferences.commit(getSharedPreferences(), this);
