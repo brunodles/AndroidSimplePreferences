@@ -66,7 +66,7 @@ public class DaoPreferencesTest {
         pref.power = 12.4F;
         pref.age = 50L;
 
-        dao.save(pref, PREF_NAME);
+        dao.commit(pref, PREF_NAME);
 
         SharedPreferences sp = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
         assertEquals(pref.favoriteCharacter, sp.getString("favoriteCharacter", null));
