@@ -46,6 +46,16 @@ class CommonPreferences {
     }
 
     static void apply(SharedPreferences preferences, Object object) {
+        objectToPrefernceEditor(preferences, object)
+                .apply();
+    }
+
+    static void commit(SharedPreferences preferences, Object object) {
+        objectToPrefernceEditor(preferences, object)
+                .commit();
+    }
+
+    private static SharedPreferences.Editor objectToPrefernceEditor(SharedPreferences preferences, Object object) {
         SharedPreferences.Editor editor = preferences.edit();
         try {
             for (Field field : object.getClass().getDeclaredFields())
@@ -57,7 +67,7 @@ class CommonPreferences {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
-        editor.apply();
+        return editor;
     }
 
     private static void saveField(SharedPreferences.Editor editor, Field field, Object object) throws IllegalAccessException, UnknownFieldTypeException {

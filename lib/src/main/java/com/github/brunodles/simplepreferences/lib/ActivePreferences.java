@@ -45,6 +45,13 @@ public abstract class ActivePreferences {
     }
 
     /**
+     * Save current data to other objects.
+     */
+    public void commit() {
+        CommonPreferences.commit(getSharedPreferences(), this);
+    }
+
+    /**
      * Clear the data file.
      */
     public void clear() {
