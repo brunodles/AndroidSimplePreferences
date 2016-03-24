@@ -8,17 +8,18 @@ A simple library to work with SharedPreferences.
 
 ## How add it
 On your `build.gradle` add the maven repository from *jitpack.io*
-
+```gradle
         repositories {
             maven { url "https://jitpack.io" }
         }
+```
 
 On your project level (`app/build.gradle`) add the _androidSimplePreferences_ dependency.
-
+```gradle
         dependencies {
             compile 'com.github.brunodles:AndroidSimplePreferences:{latest version}'
         }
-
+```
 
 Now, you just need to run a _GradleSync_.
 
@@ -43,7 +44,7 @@ To clean the data you just need to call `clean()`.
 That simple.
 
 #### Fast sample
-
+```java
 		public class CurrentUser extends ActivePreferences {
 		    @Property public String name;
 		    @Property public boolean isJedi = false;
@@ -57,6 +58,7 @@ That simple.
 		user.reload();
 		// Clean the preferences data.
 		user.clean();
+```
 
 ### Using it as Data Access Object
 To use the _DAO_ is simple too, you need to:
@@ -69,7 +71,7 @@ To load the data you just need to call `load`.
 To clean the data you just need to call `clean`.  
 
 #### Fast sample
-
+```java
 		public class Person{
 		    @Property public String name;
 		    @Property public boolean isJedi = false;
@@ -87,6 +89,7 @@ To clean the data you just need to call `clean`.
         person = dao.load(person, "anakin");
         // clean the data
         dao.clean("anakin");
+```
 
 # Sample
 You can see it in "pratice", it have some explanations too.
