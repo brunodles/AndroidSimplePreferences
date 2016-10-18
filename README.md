@@ -66,9 +66,9 @@ To use the _DAO_ is simple too, you need to:
 * *Annotate* the _persistant fields_ with `@Property`
 
 #### Saving \ Loading \ Cleaning
-To save the data as an activePreferences you just need to call `apply`.  
-To load the data you just need to call `load`.  
-To clean the data you just need to call `clean`.  
+To save the data with a Dao you just need to call `dao.save(object, key)`.  
+To load the data you just need to call `dao.load(emptyObject, key)`.  
+To clean the data you just need to call `dao.clean(key)`.  
 
 #### Fast sample
 ```java
